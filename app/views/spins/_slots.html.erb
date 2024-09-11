@@ -1,0 +1,20 @@
+<div class="grid grid-cols-3 gap-8 w-3/4 mx-auto" id="slots">
+    <% spin.values.each do |value| %>
+        <div class="h-40 w-full bg-white p-4 overflow-y-scroll hidden-scrollbar" 
+            data-controller="slot-spinner"
+            data-slot-spinner-number-value="<%= value %>"
+            data-slot-spinner-spin-value="<%= spin.values %>">
+
+            <%= image_tag "ruby.png", class: "w-full object-cover" %>
+            <%= image_tag "cherries.png", class: "w-full object-cover" %>
+            <%= image_tag "pineapple.png", class: "w-full object-cover" %>
+
+            <%#= hash = { "1": "ruby.png", "2": "cherries.png", "3": "pineapple.png"} %>
+            <%#= value %>
+            <%#= hash[value.to_s.to_sym] %>
+
+            <%= image_tag({ "1": "ruby.png", "2": "pineapple.png", "3": "cherries.png"}[value.to_s.to_sym],
+                class: "hidden w-full object-cover", data: { slot_spinner_target: "image" }) %>
+        </div>
+    <% end %>
+</div>

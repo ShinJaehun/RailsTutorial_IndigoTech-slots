@@ -1,0 +1,60 @@
+<%= turbo_stream_from "slot-machine" %>
+<div class="w-full flex flex-col items-center bg-gradient-to-b from-indigo-600 to-blue-300 min-h-screen pt-36">
+  <div class="absolute top-8 right-[50%] text-green-500 text-2xl" id="money">
+    <%= render "money", money: session[:money] %>
+  </div>
+    
+  <h1 class="font-bold text-4xl text-center">Slot Machine</h1>
+  <p class="text-center">Take a chance and possibly win a lot!</p>
+  <div class="max-w-2xl mx-auto rounded-lg bg-gray-100 w-full overflow-hidden py-6">
+    <div class="grid grid-cols-3 gap-8 w-3/4 mx-auto" id="slots">
+      <div class="h-40 w-full bg-white p-4">
+        <%= image_tag "ruby.png", class: "w-full object-cover" %>
+      </div>
+      <div class="h-40 w-full bg-white p-4">
+        <%= image_tag "cherries.png", class: "w-full object-cover" %>
+      </div>
+      <div class="h-40 w-full bg-white p-4">
+        <%= image_tag "pineapple.png", class: "w-full object-cover" %>
+      </div>
+    </div>
+  </div>
+
+  <br/>
+  <%= link_to "Play", spins_path, 
+    class: "bg-gradient-to-r from-indigo-500 to-pink-500 rounded-lg p-2 w-32 text-center",
+    data: { turbo_method: :post } %>
+
+  <br/>
+  <div class="rounded-lg bg-gray-100 max-w-2xl w-full mx-auto flex flex-col gap-4">
+    <div class="text-2xl flex gap-2 items-center">
+      <span> 3 x </span>
+      <%= image_tag "ruby.png", style: "height: 30px; width: auto;" %>
+      <span class="text-green-500 font-semibold"> $100 </span>
+    </div>
+
+    <div class="text-2xl flex gap-2 items-center">
+      <span> 3 x </span>
+        <%= image_tag "pineapple.png", style: "height: 30px; width: auto;" %>
+      <span class="text-green-500 font-semibold"> $500 </span>
+    </div>
+
+    <div class="text-2xl flex gap-2 items-center">
+      <span> 3 x </span>
+      <%= image_tag "cherries.png", style: "height: 30px; width: auto;" %>
+      <span class="text-green-500 font-semibold"> $1000 </span>
+    </div>
+
+    <div class="text-2xl flex gap-2 items-center">
+      <span> 1 x </span>
+      <%= image_tag "cherries.png", style: "height: 30px; width: auto;" %>
+      <span class="text-green-500 font-semibold"> $50 </span>
+    </div>
+
+    <div class="text-2xl flex gap-2 items-center">
+      <span> 2 x </span>
+      <%= image_tag "cherries.png", style: "height: 30px; width: auto;" %>
+      <span class="text-green-500 font-semibold"> $250 </span>
+    </div>
+  </div>
+</div>
